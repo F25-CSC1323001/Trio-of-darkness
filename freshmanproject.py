@@ -3,6 +3,8 @@ from tkinter import ttk
 import RPi.GPIO as GPIO
 
 
+                                                                #Ultrasonic Speaker code begins below
+
 #GPIO set up
 speakerPin = #figure out which pin
 GPIO.setmode(GPIO.BCM)
@@ -41,7 +43,9 @@ def DutyCycleVal(value): # function to be able to lower or increase the run time
     if pwm_act:
         pwm.DutyChange(dutyCycle)
     duty_label.config(text=f"Duty Cycle: {dutyCycle}%") # showing what the new cycle is after changing it
-    
 
 
-    
+                                                                    # Ultrasonic light code begins below
+
+
+                                                                    # UI and sync code begins below
