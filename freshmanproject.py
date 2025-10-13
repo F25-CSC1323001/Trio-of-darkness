@@ -47,6 +47,108 @@ def DutyCycleVal(value): # function to be able to lower or increase the run time
 
 
                                                                     # Ultrasonic light code begins below
+
+      
+      
+      
+     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+                                                                    # UI and sync code begins below
+
+# create the window
+root = tk.Tk()
+root.title("Ultrasonic Control")
+root.geometry("300x200")
+
+# make buttons big and easy to tap
+on_button = tk.Button(root, text="ON", command=On,
+                      font=("Arial", 18), width=10, height=2, bg="lightgreen")
+on_button.pack(pady=10)
+
+off_button = tk.Button(root, text="OFF", command=Off,
+                       font=("Arial", 18), width=10, height=2, bg="tomato")
+off_button.pack(pady=10)
+
+# keep the window open
+root.mainloop()
+=======
 GPIO.setmode(GPIO.BCM)
 LED_PIN =   # whatever pin we choose
 GPIO.setup(LED_PIN, GPIO.OUT)
@@ -73,4 +175,3 @@ light_status_label = ttk.Label(root, text='Light is OFF')
 light_status_label.pack(pady=2)
 
 
-                                                                    # UI and sync code begins below
