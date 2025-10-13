@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 import RPi.GPIO as GPIO
+from gpiozero import LED
 
 
                                                                 #Ultrasonic Speaker code begins below
@@ -46,6 +47,30 @@ def DutyCycleVal(value): # function to be able to lower or increase the run time
 
 
                                                                     # Ultrasonic light code begins below
+GPIO.setmode(GPIO.BCM)
+LED_PIN =   # whatever pin we choose
+GPIO.setup(LED_PIN, GPIO.OUT)
+
+def light_on():
+    GPIO.output(LED_PIN, GPIO.HIGH)
+    light_status_label.config(text='Light is ON')
+
+def light_off():
+    GPIO.output(LED_PIN, GPIO.LOW)
+    light_status_label.config(text='Light is OFF')
+
+# light control for the gui
+light_label = ttk.Label(root, text='Ultrasonic Light Control', font=('Arial', 14))
+light_label.pack(pady=10)
+
+light_on_button = ttk.Button(root, text='Turn ON Light', command=light_on)
+light_on_button.pack(pady=2)
+
+light_off_button = ttk.Button(root, text='Turn OFF Light', command=light_off)
+light_off_button.pack(pady=2)
+
+light_status_label = ttk.Label(root, text='Light is OFF')
+light_status_label.pack(pady=2)
 
 
                                                                     # UI and sync code begins below
