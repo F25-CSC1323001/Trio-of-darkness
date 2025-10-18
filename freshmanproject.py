@@ -7,29 +7,31 @@ from gpiozero import LED
                                                                 #Ultrasonic Speaker code begins below
 
 #GPIO set up
-speakerPin = #figure out which pin
+speakerPin = 18 #figure out which pin
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(speakerPin, GPIO.OUT)
 
-frequency = # Figure out frequency when device is here
-dutyCycle = # This value is a percentage of how often it'll run. Figure out by testing
+frequency = 40000 # Figure out frequency when device is here
+dutyCycle =  50 # This value is a percentage of how often it'll run. Figure out by testing
 
 pwm = GPIO.PWM(speakerPin, frequency)
 PWM_act = False
 
-def On():
+def system_on():
     global pwm_act
     if not pwm_act:
         pwm.start(dutyCycle)
+        GPIO.output(LED_PIN, GPIO.HIGH)
         pwm_act = True
-        status_label.config(text='Speaker is Activated')
+        status_label.config(text='System: ON (Speaker + Light)')
 
-def Off():
+def system_off():
     global pwm_act
     if pwm_act:
         pwn.stop()
+        GPIO.output(LED_PIN, GPIO.LOW)
         pwm_act = False
-        status_label.config(text='Speaker is Deactivated')
+        status_label.config(text='System: OFF')
 
 def Frequency_chan(): # function to be able to lower or increase the frequency without hard coding
     global frequency
@@ -50,17 +52,9 @@ def DutyCycleVal(value): # function to be able to lower or increase the run time
 
       
       
-      GPIO.setmode(GPIO.BCM)
-LED_PIN =   # whatever pin we choose
+GPIO.setmode(GPIO.BCM)
+LED_PIN = 23   # whatever pin we choose
 GPIO.setup(LED_PIN, GPIO.OUT)
-
-def light_on():
-    GPIO.output(LED_PIN, GPIO.HIGH)
-    light_status_label.config(text='Light is ON')
-
-def light_off():
-    GPIO.output(LED_PIN, GPIO.LOW)
-    light_status_label.config(text='Light is OFF')
 
 # light control for the gui
 light_label = ttk.Label(root, text='Ultrasonic Light Control', font=('Arial', 14))
@@ -99,14 +93,6 @@ root.mainloop()
 GPIO.setmode(GPIO.BCM)
 LED_PIN =   # whatever pin we choose
 GPIO.setup(LED_PIN, GPIO.OUT)
-
-def light_on():
-    GPIO.output(LED_PIN, GPIO.HIGH)
-    light_status_label.config(text='Light is ON')
-
-def light_off():
-    GPIO.output(LED_PIN, GPIO.LOW)
-    light_status_label.config(text='Light is OFF')
 
 # light control for the gui
 light_label = ttk.Label(root, text='Ultrasonic Light Control', font=('Arial', 14))
