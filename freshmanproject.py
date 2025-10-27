@@ -12,7 +12,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(speakerPin, GPIO.OUT)
 
 frequency = 40000 # Figure out frequency when device is here
-dutyCycle =  50 # This value is a percentage of how often it'll run. Figure out by testing
+dutyCycle = 50 # This value is a percentage of how often it'll run. Figure out by testing
 
 pwm = GPIO.PWM(speakerPin, frequency)
 PWM_act = False
@@ -89,9 +89,8 @@ off_button.pack(pady=10)
 
 # keep the window open
 root.mainloop()
-=======
 GPIO.setmode(GPIO.BCM)
-LED_PIN =   # whatever pin we choose
+LED_PIN = 23  
 GPIO.setup(LED_PIN, GPIO.OUT)
 
 # light control for the gui
